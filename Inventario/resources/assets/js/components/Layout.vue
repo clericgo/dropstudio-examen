@@ -9,8 +9,16 @@
                     <div class="col-sm">
                         <div v-text="producto.nombre"></div>
                         <div class="text-primary">By Apple</div>
-                        <div v-switch="productoCalificacion">
+                        {{producto.calificacion}}
+                        <div v-switch="producto.calificacion">
                             <div v-default>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <div v-case="'0'">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -38,14 +46,14 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <div v-case="4">
+                            <div v-case="'4'">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <div v-case="'5'">
+                            <div v-case="5">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -90,8 +98,7 @@
     export default {
         data(){
             return{
-                arrayProductos : [],
-                productoCalificacion: '5'            
+                arrayProductos : []
             }
         },
         methods:{
@@ -112,6 +119,8 @@
                     {
                         'id' : id_producto,
                         'eliminacion' : 1
+                    }).then(function (){
+                        location.reload();
                     }).catch(function(error){
                         console.log(error);
                     });

@@ -99,7 +99,7 @@
     <script src="js/app.js"></script>
     <script>
         function irUrl(){
-            window.location.href = '/nuevoProducto';
+            window.location.href = '/';
         }
     </script>
 </html>

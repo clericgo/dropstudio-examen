@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Database\Query\Builder;
 use App\Producto;
 
 class ProductoController extends Controller
@@ -11,7 +10,12 @@ class ProductoController extends Controller
     // Read - Leer/Mostrar
     public function index()
     {
-        $productos = Producto::all();
+        /*$productos = Producto::where('eliminacion', '=', '0')->select
+        (
+            'id', 'sku', 'nombre', 'descripcion', 'precio', 'cantidad', 'disponible'
+        )-> orderBy('nombre', 'asc')->get();*/
+        $productos = Producto::where('eliminacion', '=', 0)->get();
+        //$productos = Producto::all();
         return $productos;
     }
 

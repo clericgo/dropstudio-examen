@@ -45075,13 +45075,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            arrayProductos: [],
-            productoCalificacion: '5'
+            arrayProductos: []
         };
     },
 
@@ -45102,6 +45109,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 axios.put('/producto/eliminar', {
                     'id': id_producto,
                     'eliminacion': 1
+                }).then(function () {
+                    location.reload();
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -45150,7 +45159,11 @@ var render = function() {
                 _c("div", { staticClass: "text-primary" }, [
                   _vm._v("By Apple")
                 ]),
-                _vm._v(" "),
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(producto.calificacion) +
+                    "\n                    "
+                ),
                 _c(
                   "div",
                   {
@@ -45158,8 +45171,8 @@ var render = function() {
                       {
                         name: "switch",
                         rawName: "v-switch",
-                        value: _vm.productoCalificacion,
-                        expression: "productoCalificacion"
+                        value: producto.calificacion,
+                        expression: "producto.calificacion"
                       }
                     ]
                   },
@@ -45168,6 +45181,31 @@ var render = function() {
                       "div",
                       {
                         directives: [{ name: "default", rawName: "v-default" }]
+                      },
+                      [
+                        _c("i", { staticClass: "fa fa-star-o" }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fa fa-star-o" }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fa fa-star-o" }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fa fa-star-o" }),
+                        _vm._v(" "),
+                        _c("i", { staticClass: "fa fa-star-o" })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "case",
+                            rawName: "v-case",
+                            value: "0",
+                            expression: "'0'"
+                          }
+                        ]
                       },
                       [
                         _c("i", { staticClass: "fa fa-star-o" }),
@@ -45264,8 +45302,8 @@ var render = function() {
                           {
                             name: "case",
                             rawName: "v-case",
-                            value: 4,
-                            expression: "4"
+                            value: "4",
+                            expression: "'4'"
                           }
                         ]
                       },
@@ -45289,8 +45327,8 @@ var render = function() {
                           {
                             name: "case",
                             rawName: "v-case",
-                            value: "5",
-                            expression: "'5'"
+                            value: 5,
+                            expression: "5"
                           }
                         ]
                       },
